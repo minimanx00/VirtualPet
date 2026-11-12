@@ -559,7 +559,7 @@ MonoBehaviour:
   value: 0
   minValue: 0
   maxValue: 100
-  changePerSecond: -25
+  changePerSecond: 0
   updateDiscrete: 0
   onValueChange:
     m_PersistentCalls:
@@ -935,6 +935,7 @@ Transform:
   - {fileID: 3167434532558095288}
   - {fileID: 610287096590164685}
   - {fileID: 4108427484438644130}
+  - {fileID: 4488176510029904477}
   - {fileID: 2735522955229456403}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1408,7 +1409,59 @@ MonoBehaviour:
   value: 0
   minValue: 0
   maxValue: 100
-  changePerSecond: 25
+  changePerSecond: 10
+  updateDiscrete: 0
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &8821702115243485810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4488176510029904477}
+  - component: {fileID: 3764528153807393638}
+  m_Layer: 0
+  m_Name: Inspiration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4488176510029904477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821702115243485810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5563032761936861131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3764528153807393638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821702115243485810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c35da97ccd714ad58deb5e8bbf0661d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PetVariable
+  value: 0
+  minValue: 0
+  maxValue: 100
+  changePerSecond: -25
   updateDiscrete: 0
   onValueChange:
     m_PersistentCalls:
