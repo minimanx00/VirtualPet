@@ -662,21 +662,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 918829151701540241, guid: a89db14b292cc25439ede1886579b4e3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.318
-      objectReference: {fileID: 0}
-    - target: {fileID: 918829151701540241, guid: a89db14b292cc25439ede1886579b4e3, type: 3}
-      propertyPath: m_LocalPosition.z
+    - target: {fileID: 2735522955229456403, guid: a89db14b292cc25439ede1886579b4e3, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4482429566762100823, guid: a89db14b292cc25439ede1886579b4e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4565716335978173772, guid: a89db14b292cc25439ede1886579b4e3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4957865668706626434, guid: a89db14b292cc25439ede1886579b4e3, type: 3}
       propertyPath: m_Name
@@ -750,7 +742,8 @@ PrefabInstance:
       propertyPath: onValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6124830204163759110, guid: a89db14b292cc25439ede1886579b4e3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
