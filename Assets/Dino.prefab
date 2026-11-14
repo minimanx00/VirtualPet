@@ -400,6 +400,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a119ecc7254a54bf17facbd6b60be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tailStart: {fileID: 4565716335978173772}
+  tailEnd: {fileID: 4482429566762100823}
+  localDirection: {x: 0, y: 0, z: -1}
+  tailLength: 1.2
+  segments: 16
+  sides: 10
+  baseRadius: 0.16
+  tipRadius: 0.015
+  restCurl: 0.4
+  stiffness: 35
+  damping: 6
+  gravityScale: 0.35
+  maxBendAngle: 30
+  iterations: 16
+  collideWithWorld: 1
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  ignoreCollisionRoot: {fileID: 5563032761936861131}
+  collisionSkin: 0.003
+  surfaceFriction: 0.2
 --- !u!1 &3676394843989337148
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,15 +18,17 @@ The supplied images are low-resolution and are not a matched six-face cubemap, s
 
 ## Dino tail IK
 
-Open `Assets/Dino.prefab` in Prefab Mode, or drag the prefab into a scene. Under **Dino > Tail**, move **Tail Start** to position the base and **Tail End** to position the tip. The tapered mesh follows in Edit mode and Play mode; scripts and animation clips can move either control too. MainScene currently uses a separate pet object, so add the Dino prefab there to see this tail in that scene.
+`Assets/TailIK.cs` is attached to **Dino > Body > Tail** in the prefab and MainScene. The component generates a capped, tapered mesh using the existing tail material. No additional Unity packages are required.
 
-Select **Tail** to adjust the **Tail IK** component:
+Move or rotate **Tail Start** to set the base and resting direction. **Local Direction** defaults to `(0, 0, -1)`, behind the Dino; **Rest Curl** bends the resting shape toward Tail Start's local up axis. Edit mode previews this resting shape. In Play mode the tip is calculated automatically: gravity, movement inertia, springs, and a constrained FABRIK chain determine the pose. The first link follows Tail Start's rotation, and the other links bend within **Max Bend Angle**. **Tail End** is an optional output marker updated in Play mode, not a target to drag.
 
-- **Tail Length** is the fixed chain length and maximum distance from Tail Start, measured in Tail local units. Dragging Tail End beyond that distance clamps the control itself to the reachable boundary in Edit mode and Play mode. Moving Tail Start or reducing Tail Length also reclamps Tail End. When the controls are closer together, the chain bends while preserving its segment lengths.
-- **Bend Direction** sets the preferred arch in Tail local space. The default `(0, 1, 0)` arches upward.
-- **Base Radius** and **Tip Radius** control thickness; **Segments** and **Sides** control mesh detail.
-- **Iterations** and **Tolerance** control FABRIK convergence. Very low iteration counts can leave a small gap at the tip.
+Select **Tail** to tune:
 
-The component generates a capped mesh using the Crocodile Body material. Its yellow selected-object gizmo shows the IK chain. The old cylinder and its rigid collider have been replaced; the generated tail is visual geometry and has no collider. Keep the two controls outside any solved bone hierarchy. No additional Unity packages are required.
+- **Tail Length**, **Base Radius**, **Tip Radius**, **Segments**, and **Sides** control shape. Dimensions use Tail local units and follow its scale. World-space circular cross sections use the largest absolute scale component for their radius.
+- **Stiffness** returns the chain toward its resting shape; **Damping** reduces swinging; **Gravity Scale** controls droop. Move or animate the pet to see the tip lag behind.
+- **Collide With World** and **Collision Layers** select obstacles. Floors, walls, and other obstacles need enabled 3D colliders. Triggers are ignored. **Ignore Collision Root** is assigned to Dino, so the tail ignores the pet's own colliders.
+- **Collision Skin** adds clearance; **Surface Friction** reduces sliding. Capsule penetration queries cover links, and sphere sweeps reduce tunneling during movement. **Iterations** controls how closely collision, length, and bend constraints converge.
 
-Implementation references: [Unity ExecuteAlways](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/ExecuteAlways.html), [Unity Mesh](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Mesh.html), and [FABRIK chain IK](https://docs.unity.cn/Packages/com.unity.animation.rigging@1.1/manual/constraints/ChainIKConstraint.html).
+The tail reacts visually to the environment; it does not push rigidbodies or collide with itself. Its base/first link remain attached, so keep Tail Start outside world obstacles. Very tight spaces or very fast motion can exceed the iterative solver's limits. Large teleports reset the pose. Disable/re-enable the component or use its **Reset Tail Pose** context menu to reset it manually. The selected object's yellow gizmo shows the solved chain.
+
+Implementation references: [Unity ComputePenetration](https://docs.unity.com/en-us/engine/6000.3/script-reference/unityengine/physics/computepenetration), [Unity SphereCastNonAlloc](https://docs.unity.com/en-us/engine/6000.3/script-reference/unityengine/physics/spherecastnonalloc), and [Unity ExecuteAlways](https://docs.unity.com/en-us/engine/6000.3/script-reference/unityengine/executealways).
