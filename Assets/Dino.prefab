@@ -406,19 +406,19 @@ MonoBehaviour:
   tailLength: 1.2
   segments: 16
   sides: 10
-  baseRadius: 0.16
-  tipRadius: 0.015
-  restCurl: 0.4
-  stiffness: 35
+  baseRadius: 0.13
+  tipRadius: 0.01
+  restCurl: 1.96
+  stiffness: 6.92
   damping: 6
-  gravityScale: 0.35
-  maxBendAngle: 30
+  gravityScale: 0.2
+  maxBendAngle: 90
   iterations: 16
-  collideWithWorld: 1
+  collideWithWorld: 0
   collisionLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  ignoreCollisionRoot: {fileID: 5563032761936861131}
+  ignoreCollisionRoot: {fileID: 985005380601973812}
   collisionSkin: 0.003
   surfaceFriction: 0.2
 --- !u!1 &3676394843989337148
@@ -973,6 +973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   material: {fileID: 2100000, guid: f5aa9d61376e0074cb66d176c4b8a3ac, type: 2}
+  hueVariance: 0
+  wetness: 0
 --- !u!95 &6982946451908138043
 Animator:
   serializedVersion: 7
